@@ -25,7 +25,9 @@ function pet(props) {
           <dt>Story</dt>
           <dd>{ props.animal.story }</dd> 
         </dl>
-        <button onClick={() => props.dispatch(adoptAnimal(props.breed))} />
+        <button onClick={() => props.dispatch(adoptAnimal(props.breed))}>
+          Adopt {props.animal.name}
+        </button>
       </main>
     </div>
   );
