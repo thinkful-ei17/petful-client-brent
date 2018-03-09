@@ -1,13 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { adoptAnimal } from './../actions'; 
-// header -> name/photo
-// main-> dl to display animal info minus name & photo
-// button for adopt(dispatch action to delete)
-
+import { adoptAnimal } from './../actions';
 
 function pet(props) {
-  console.log('PROPS FROM PET', props);
   return(
     <div>
       <h1>
@@ -34,7 +29,6 @@ function pet(props) {
 }
 
 const mapStateToProps = (state, props) => {
-  console.log(state);
   return {
     animal: state[props.breed + 'ToBeAdopted'],
   }; 
