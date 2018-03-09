@@ -27,6 +27,7 @@ const initialState = {
 };
 
 const reducer = (state = initialState, action) => {
+  console.log(action);
   if(action.type === ADOPT_DOG) {
     console.log('adopt dog');
   }
