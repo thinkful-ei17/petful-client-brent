@@ -16,7 +16,8 @@ export const adoptAnimal = (species) => {
 
 export const FETCH_DOG_REQUEST = 'FETCH_DOG_REQUEST';
 export const FETCH_CAT_REQUEST = 'FETCH_CAT_REQUEST';
-export const FETCH_SUCCESS = 'FETCH_SUCCESS';
+export const FETCH_DOG_SUCCESS = 'FETCH_DOG_SUCCESS';
+export const FETCH_CAT_SUCCESS = 'FETCH_CAT_SUCCESS';
 export const FETCH_ERROR = 'FETCH_ERROR';
 export const fetchAnimal = (species) => (dispatch) => {
   if (species === 'dog') {
@@ -34,10 +35,18 @@ export const fetchAnimal = (species) => (dispatch) => {
         return Promise.reject(res.statusText);
       }
       return res.json();
-    }).then(() => {
-      dispatch({
-        type: FETCH_SUCCESS,
-      });
+    }).then((animal) => {
+      if (species === 'dog') {
+        dispatch({
+          type: FETCH_DOG_SUCCESS,
+          animal,
+        });
+      } else if (species === 'cat') {
+        dispatch({
+          type: FETCH_CAT_SUCCESS,
+          animal,
+        });
+      }
     })
     .catch((error) => {
       dispatch({

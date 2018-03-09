@@ -7,7 +7,7 @@ import { adoptAnimal } from './../actions';
 
 
 function pet(props) {
-
+  console.log('PROPS FROM PET', props);
   return(
     <div>
       <h1>
@@ -31,8 +31,11 @@ function pet(props) {
   );
 }
 
-const mapStateToProps = (state, props) => ({
-  animal: state[props.breed + 'ToAdopt'], 
-});
+const mapStateToProps = (state, props) => {
+  console.log(state);
+  return {
+    animal: state[props.breed + 'ToBeAdopted'],
+  }; 
+};
 
 export default connect(mapStateToProps)(pet);

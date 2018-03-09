@@ -1,40 +1,64 @@
 import {
   ADOPT_CAT,
   ADOPT_DOG,
+  FETCH_DOG_REQUEST,
+  FETCH_CAT_REQUEST,
+  FETCH_DOG_SUCCESS,
+  FETCH_CAT_SUCCESS,
+  FETCH_ERROR,
 } from './../actions.js';
 
 const initialState = {
   loading: true,
   error: null,
-  dogToAdopt: {
-    imageURL: '',
-    imageDescription: '',
-    name: 'doggo',
-    sex: '',
-    age: '',
-    breed: '',
-    story: '',
-  },
-  catToAdopt: {
-    imageURL: '',
-    imageDescription: '',
-    name: 'cat thing',
-    sex: '',
-    age: '',
-    breed: '',
-    story: '',
-  },
+  dogToBeAdopted: '',
+  catToBeAdopted: '',
 };
 
 const reducer = (state = initialState, action) => {
   console.log(action);
-  if(action.type === ADOPT_DOG) {
-    console.log('adopt dog');
+  switch(action.type) {
+  case ADOPT_DOG:
+    return;
+  case ADOPT_CAT:
+    return;
+  case FETCH_DOG_REQUEST:
+    return {
+      ...state,
+      loading: true,
+      error: null,
+    };
+  case FETCH_CAT_REQUEST:
+    return {
+      ...state,
+      loading: true,
+      error: null,
+    };
+  case FETCH_DOG_SUCCESS:
+    return {
+      ...state,
+      loading: false,
+      error: null,
+      dogToBeAdopted: action.animal,
+    };
+    
+  case FETCH_CAT_SUCCESS:
+    return {
+      ...state,
+      loading: false,
+      error: null,
+      catToBeAdopted: action.animal,
+    };
+    
+  case FETCH_ERROR:
+    return {
+      ...state,
+      loading: false,
+      error: action.error,
+    };
+  default:
+    return state;
   }
-  if (action.type === ADOPT_CAT) {
-    console.log('adopt cat');
-  } 
-  return state;  
 };
 
 export default reducer;
