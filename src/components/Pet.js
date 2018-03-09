@@ -3,8 +3,11 @@ import { connect } from 'react-redux';
 // header -> name/photo
 // main-> dl to display animal info minus name & photo
 // button for adopt(dispatch action to delete)
+function adoptAnimal(){
 
-function infoSection(props) {
+}
+
+function pet(props) {
 
   return(
     <div>
@@ -23,14 +26,14 @@ function infoSection(props) {
           <dt>Story</dt>
           <dd>{ props.animal.story }</dd> 
         </dl>
-        <button onClick={() => dispatch(adoptAnimal)} />
+        <button onClick={() => props.dispatch(adoptAnimal(props.breed))} />
       </main>
     </div>
   );
 }
 
-const mapStateToProps = {
+const mapStateToProps = (state, props) => ({
+  animal: state[props.breed + 'ToAdopt'], 
+});
 
-};
-
-export default connect(mapStateToProps)(infoSection);
+export default connect(mapStateToProps)(pet);

@@ -9,7 +9,7 @@ const initialState = {
   dogToAdopt: {
     imageURL: '',
     imageDescription: '',
-    name: '',
+    name: 'doggo',
     sex: '',
     age: '',
     breed: '',
@@ -18,7 +18,7 @@ const initialState = {
   catToAdopt: {
     imageURL: '',
     imageDescription: '',
-    name: '',
+    name: 'cat thing',
     sex: '',
     age: '',
     breed: '',
