@@ -1,6 +1,4 @@
 import {
-  ADOPT_CAT,
-  ADOPT_DOG,
   FETCH_DOG_REQUEST,
   FETCH_CAT_REQUEST,
   FETCH_DOG_SUCCESS,
@@ -18,10 +16,6 @@ const initialState = {
 const reducer = (state = initialState, action) => {
   console.log(action);
   switch(action.type) {
-  case ADOPT_DOG:
-    return;
-  case ADOPT_CAT:
-    return;
   case FETCH_DOG_REQUEST:
     return {
       ...state,
@@ -41,15 +35,13 @@ const reducer = (state = initialState, action) => {
       error: null,
       dogToBeAdopted: action.animal,
     };
-    
   case FETCH_CAT_SUCCESS:
     return {
       ...state,
       loading: false,
       error: null,
       catToBeAdopted: action.animal,
-    };
-    
+    };    
   case FETCH_ERROR:
     return {
       ...state,
