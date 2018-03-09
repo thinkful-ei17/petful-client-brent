@@ -19,8 +19,4 @@ export class Dashboard extends React.Component {
   }
 }
 
-// const mapStateToProps = (state) => ({
-
-// });
-
 export default connect()(Dashboard);
